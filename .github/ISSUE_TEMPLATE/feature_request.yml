@@ -1,0 +1,35 @@
+name: Đề xuất tính năng (Feature Request)
+description: Đề xuất một ý tưởng hoặc tính năng mới cho dự án
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn bạn đã đề xuất ý tưởng nâng cấp dự án Tuấn Tú Wedding!
+  - type: textarea
+    id: problem
+    attributes:
+      label: Vấn đề cần giải quyết
+      description: Tính năng này giải quyết nhu cầu hoặc vấn đề gì?
+      placeholder: Mô tả rõ ràng về vấn đề hoặc mong muốn của bạn...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Giải pháp đề xuất
+      description: Bạn muốn tính năng hoạt động như thế nào?
+      placeholder: Mô tả chi tiết giải pháp hoặc giao diện mong đợi...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Giải pháp thay thế (nếu có)
+      description: Bất kỳ giải pháp thay thế nào bạn đã xem xét?
+  - type: textarea
+    id: context
+    attributes:
+      label: Thông tin bổ sung
+      description: Đính kèm hình ảnh tham khảo, mockup hoặc tài liệu liên quan.

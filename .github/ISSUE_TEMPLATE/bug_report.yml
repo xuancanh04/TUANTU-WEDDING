@@ -1,0 +1,55 @@
+name: Báo cáo lỗi (Bug Report)
+description: Tạo báo cáo giúp chúng tôi cải thiện và khắc phục lỗi
+title: "[BUG]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn bạn đã báo cáo lỗi! Vui lòng cung cấp chi tiết bên dưới.
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả lỗi
+      description: Mô tả ngắn gọn và súc tích về sự cố gặp phải.
+      placeholder: Vui lòng mô tả lỗi xảy ra như thế nào...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Các bước tái hiện lỗi (Steps to Reproduce)
+      description: Liệt kê các bước cụ thể để tái hiện lỗi.
+      placeholder: |
+        1. Truy cập vào trang '...'
+        2. Nhấn vào nút '...'
+        3. Xem kết quả lỗi xảy ra
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Kết quả mong đợi (Expected Behavior)
+      description: Bạn mong đợi điều gì sẽ diễn ra nếu không có lỗi?
+      placeholder: Mô tả hành vi đúng mong đợi...
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Ảnh chụp màn hình / Video
+      description: Kéo thả hình ảnh hoặc video minh họa nếu có.
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Trình duyệt gặp lỗi
+      options:
+        - Chrome
+        - Edge
+        - Firefox
+        - Safari
+        - Cốc Cốc
+        - Trình duyệt di động (Mobile Browser)
+        - Khác
+    validations:
+      required: true
