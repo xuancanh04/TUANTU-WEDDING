@@ -107,49 +107,55 @@ export function Header({ solid = false }: { solid?: boolean }) {
   return (
     <nav className={`nav-shell nav-${navState}`} aria-label="Điều hướng chính">
       <div className="nav-links nav-left">
-        <a href="/gioi-thieu">Giới thiệu</a>
+        <Link href="/gioi-thieu">Giới thiệu</Link>
         <details className="nav-dropdown" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
           <summary onClick={onServicesSummaryClick}>Dịch vụ</summary>
           <div className="dropdown-menu service-menu">
-            <a className="menu-all" href="/dich-vu">Xem tất cả <span>↗</span></a>
+            <Link className="menu-all" href="/dich-vu">Xem tất cả <span>↗</span></Link>
             <div className="menu-group">
-              <a className="menu-group-title" href="/dich-vu/pre-wedding">Pre-wedding <span>↗</span></a>
-              <a href="/dich-vu/studio">Studio</a>
-              <a href="/dich-vu/phim-truong">Phim trường</a>
-              <a href="/dich-vu/ngoai-canh">Ngoại cảnh</a>
+              <Link className="menu-group-title" href="/dich-vu/pre-wedding">Pre-wedding <span>↗</span></Link>
+              <Link href="/dich-vu/studio">Studio</Link>
+              <Link href="/dich-vu/phim-truong">Phim trường</Link>
+              <Link href="/dich-vu/ngoai-canh">Ngoại cảnh</Link>
             </div>
             <div className="menu-group">
-              <a className="menu-group-title" href="/dich-vu/wedding-day">Wedding Day <span>↗</span></a>
-              <a href="/dich-vu/tron-goi-ngay-cuoi">Trọn gói ngày cưới</a>
-              <a href="/dich-vu/phong-su">Chụp truyền thống | Phóng sự</a>
+              <Link className="menu-group-title" href="/dich-vu/wedding-day">Wedding Day <span>↗</span></Link>
+              <Link href="/dich-vu/tron-goi-ngay-cuoi">Trọn gói ngày cưới</Link>
+              <Link href="/dich-vu/phong-su">Chụp truyền thống | Phóng sự</Link>
             </div>
             <div className="menu-group">
-              <a className="menu-group-title" href="/trang-phuc">Thuê trang phục <span>↗</span></a>
-              <a href="/bang-gia">Bảng giá</a>
+              <Link className="menu-group-title" href="/trang-phuc">Thuê trang phục <span>↗</span></Link>
+              <Link href="/bang-gia">Bảng giá</Link>
             </div>
             <div className="menu-group">
-              <a className="menu-group-title" href="/dich-vu/makeup">Makeup <span>↗</span></a>
+              <Link className="menu-group-title" href="/dich-vu/makeup">Makeup <span>↗</span></Link>
             </div>
           </div>
         </details>
         <details className="nav-dropdown" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
           <summary onClick={onOutfitsSummaryClick}>Trang phục</summary>
           <div className="dropdown-menu outfit-menu">
-            <a className="menu-group-title" href="/trang-phuc">Xem tất cả <span>↗</span></a>
-            <a href="/trang-phuc/ao-dai">Áo dài cưới</a>
-            <a href="/trang-phuc/vay-cuoi">Váy cưới</a>
-            <a href="/trang-phuc/ao-dai-bung-qua">Áo dài bưng quả</a>
-            <a href="/trang-phuc/vest">Vest</a>
+            <Link className="menu-group-title" href="/trang-phuc">Xem tất cả <span>↗</span></Link>
+            <Link href="/trang-phuc/ao-dai">Áo dài cưới</Link>
+            <Link href="/trang-phuc/vay-cuoi">Váy cưới</Link>
+            <Link href="/trang-phuc/ao-dai-bung-qua">Áo dài bưng quả</Link>
+            <Link href="/trang-phuc/vest">Vest</Link>
           </div>
         </details>
       </div>
-      <a className="brand-logo" href={solid ? "/" : "#top"} aria-label="Tuấn Tú Wedding trang chủ">
-        <Image src="/logo-transparent.png" alt="Tuấn Tú Wedding Studio" fill sizes="108px" priority />
-      </a>
+      {solid ? (
+        <Link className="brand-logo" href="/" aria-label="Tuấn Tú Wedding trang chủ">
+          <Image src="/logo-transparent.png" alt="Tuấn Tú Wedding Studio" fill sizes="108px" priority />
+        </Link>
+      ) : (
+        <a className="brand-logo" href="#top" aria-label="Tuấn Tú Wedding trang chủ">
+          <Image src="/logo-transparent.png" alt="Tuấn Tú Wedding Studio" fill sizes="108px" priority />
+        </a>
+      )}
       <div className="nav-links nav-right">
-        <a href="/album">Album</a>
-        <a href="/bang-gia">Bảng giá</a>
-        <a href="/lien-he">Liên hệ</a>
+        <Link href="/album">Album</Link>
+        <Link href="/bang-gia">Bảng giá</Link>
+        <Link href="/lien-he">Liên hệ</Link>
       </div>
       <button className="mobile-menu-toggle" type="button" aria-label={isMobileMenuOpen ? "Đóng menu" : "Mở menu"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen((open) => !open)}>
         <span />
@@ -157,44 +163,44 @@ export function Header({ solid = false }: { solid?: boolean }) {
         <span />
       </button>
       <div className={`mobile-menu${isMobileMenuOpen ? " is-open" : ""}`}>
-        <a href="/gioi-thieu" onClick={() => setIsMobileMenuOpen(false)}>Giới thiệu</a>
+        <Link href="/gioi-thieu" onClick={() => setIsMobileMenuOpen(false)}>Giới thiệu</Link>
           <details className="mobile-dropdown">
             <summary>Dịch vụ</summary>
             <div className="mobile-service-menu">
-              <a className="menu-all" href="/dich-vu" onClick={() => setIsMobileMenuOpen(false)}>Xem tất cả <span>↗</span></a>
+              <Link className="menu-all" href="/dich-vu" onClick={() => setIsMobileMenuOpen(false)}>Xem tất cả <span>↗</span></Link>
               <div className="mobile-service-group">
-                <a className="menu-group-title" href="/dich-vu/pre-wedding" onClick={() => setIsMobileMenuOpen(false)}>Pre-wedding <span>↗</span></a>
-                <a href="/dich-vu/studio" onClick={() => setIsMobileMenuOpen(false)}>Studio</a>
-                <a href="/dich-vu/phim-truong" onClick={() => setIsMobileMenuOpen(false)}>Phim trường</a>
-                <a href="/dich-vu/ngoai-canh" onClick={() => setIsMobileMenuOpen(false)}>Ngoại cảnh</a>
+                <Link className="menu-group-title" href="/dich-vu/pre-wedding" onClick={() => setIsMobileMenuOpen(false)}>Pre-wedding <span>↗</span></Link>
+                <Link href="/dich-vu/studio" onClick={() => setIsMobileMenuOpen(false)}>Studio</Link>
+                <Link href="/dich-vu/phim-truong" onClick={() => setIsMobileMenuOpen(false)}>Phim trường</Link>
+                <Link href="/dich-vu/ngoai-canh" onClick={() => setIsMobileMenuOpen(false)}>Ngoại cảnh</Link>
               </div>
               <div className="mobile-service-group">
-                <a className="menu-group-title" href="/dich-vu/wedding-day" onClick={() => setIsMobileMenuOpen(false)}>Wedding Day <span>↗</span></a>
-                <a href="/dich-vu/tron-goi-ngay-cuoi" onClick={() => setIsMobileMenuOpen(false)}>Trọn gói ngày cưới</a>
-                <a href="/dich-vu/phong-su" onClick={() => setIsMobileMenuOpen(false)}>Chụp truyền thống | Phóng sự</a>
+                <Link className="menu-group-title" href="/dich-vu/wedding-day" onClick={() => setIsMobileMenuOpen(false)}>Wedding Day <span>↗</span></Link>
+                <Link href="/dich-vu/tron-goi-ngay-cuoi" onClick={() => setIsMobileMenuOpen(false)}>Trọn gói ngày cưới</Link>
+                <Link href="/dich-vu/phong-su" onClick={() => setIsMobileMenuOpen(false)}>Chụp truyền thống | Phóng sự</Link>
               </div>
               <div className="mobile-service-group">
-                <a className="menu-group-title" href="/trang-phuc" onClick={() => setIsMobileMenuOpen(false)}>Thuê trang phục <span>↗</span></a>
-                <a href="/bang-gia" onClick={() => setIsMobileMenuOpen(false)}>Bảng giá</a>
+                <Link className="menu-group-title" href="/trang-phuc" onClick={() => setIsMobileMenuOpen(false)}>Thuê trang phục <span>↗</span></Link>
+                <Link href="/bang-gia" onClick={() => setIsMobileMenuOpen(false)}>Bảng giá</Link>
               </div>
               <div className="mobile-service-group">
-                <a className="menu-group-title" href="/dich-vu/makeup" onClick={() => setIsMobileMenuOpen(false)}>Makeup <span>↗</span></a>
+                <Link className="menu-group-title" href="/dich-vu/makeup" onClick={() => setIsMobileMenuOpen(false)}>Makeup <span>↗</span></Link>
               </div>
             </div>
           </details>
           <details className="mobile-dropdown">
             <summary>Trang phục</summary>
             <div className="mobile-outfit-menu">
-              <a href="/trang-phuc" onClick={() => setIsMobileMenuOpen(false)}>Xem tất cả <span>↗</span></a>
-              <a href="/trang-phuc/ao-dai" onClick={() => setIsMobileMenuOpen(false)}>Áo dài cưới</a>
-              <a href="/trang-phuc/vay-cuoi" onClick={() => setIsMobileMenuOpen(false)}>Váy cưới</a>
-              <a href="/trang-phuc/ao-dai-bung-qua" onClick={() => setIsMobileMenuOpen(false)}>Áo dài bưng quả</a>
-              <a href="/trang-phuc/vest" onClick={() => setIsMobileMenuOpen(false)}>Vest</a>
+              <Link href="/trang-phuc" onClick={() => setIsMobileMenuOpen(false)}>Xem tất cả <span>↗</span></Link>
+              <Link href="/trang-phuc/ao-dai" onClick={() => setIsMobileMenuOpen(false)}>Áo dài cưới</Link>
+              <Link href="/trang-phuc/vay-cuoi" onClick={() => setIsMobileMenuOpen(false)}>Váy cưới</Link>
+              <Link href="/trang-phuc/ao-dai-bung-qua" onClick={() => setIsMobileMenuOpen(false)}>Áo dài bưng quả</Link>
+              <Link href="/trang-phuc/vest" onClick={() => setIsMobileMenuOpen(false)}>Vest</Link>
             </div>
           </details>
-        <a href="/album" onClick={() => setIsMobileMenuOpen(false)}>Album</a>
-        <a href="/bang-gia" onClick={() => setIsMobileMenuOpen(false)}>Bảng giá</a>
-        <a href="/lien-he" onClick={() => setIsMobileMenuOpen(false)}>Liên hệ</a>
+        <Link href="/album" onClick={() => setIsMobileMenuOpen(false)}>Album</Link>
+        <Link href="/bang-gia" onClick={() => setIsMobileMenuOpen(false)}>Bảng giá</Link>
+        <Link href="/lien-he" onClick={() => setIsMobileMenuOpen(false)}>Liên hệ</Link>
       </div>
     </nav>
   );
@@ -492,7 +498,68 @@ function HomeReviews() {
 }
 
 export function Footer() {
-  return <footer className="site-footer"><div className="footer-grid"><div className="footer-about"><a className="brand-logo" href="/" aria-label="Tuấn Tú Wedding trang chủ"><Image src="/logo-transparent.png" alt="Tuấn Tú Wedding Studio" fill sizes="108px" /></a><p>Makeup Bridal, Photography và Phóng sự cưới. Đồng hành cùng bạn lưu giữ những khoảnh khắc đẹp nhất của ngày trọng đại.</p><a href="tel:0817550150">☎ &nbsp;0817 550 150</a><p className="footer-address">Thôn Điện Tân, xã Cư Pui,<br />huyện Krông Bông, Đắk Lắk</p></div><div className="footer-column"><h3>Dịch vụ nổi bật</h3><a href="/#services">→ &nbsp;Makeup Bridal</a><a href="/#services">→ &nbsp;Wedding Photography</a><a href="/#services">→ &nbsp;Phóng sự cưới</a><a href="/#outfits">→ &nbsp;Trang phục cưới</a></div><div className="footer-column"><h3>Bản đồ</h3><div className="map-card"><iframe title="Bản đồ Tuấn Tú Wedding" src="https://www.google.com/maps?q=Thon+Dien+Tan,+Cu+Pui,+Krong+Bong,+Dak+Lak&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /><a className="map-open" href="https://maps.app.goo.gl/Jieztynya9e3PKjk7" target="_blank" rel="noreferrer">Mở trong Google Maps ↗</a></div><p className="footer-address">Thôn Điện Tân, xã Cư Pui<br />Krông Bông, Đắk Lắk</p></div><div className="footer-column"><h3>Fanpage</h3><div className="facebook-widget"><iframe title="Fanpage Tuấn Tú Wedding" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTuantuwedding&tabs=timeline&width=340&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" loading="lazy" scrolling="no" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" /></div><a className="facebook-link" href="https://www.facebook.com/Tuantuwedding" target="_blank" rel="noreferrer">Xem fanpage trên Facebook ↗</a></div></div><div className="footer-bottom"><span>© 2026 Tuấn Tú Wedding</span><span>Makeup Bridal · Photography · Phóng sự cưới</span></div></footer>;
+  return (
+    <footer className="site-footer">
+      <div className="footer-grid">
+        <div className="footer-about">
+          <Link className="brand-logo" href="/" aria-label="Tuấn Tú Wedding trang chủ">
+            <Image src="/logo-transparent.png" alt="Tuấn Tú Wedding Studio" fill sizes="108px" />
+          </Link>
+          <p>
+            Makeup Bridal, Photography và Phóng sự cưới. Đồng hành cùng bạn lưu giữ những khoảnh khắc đẹp nhất của ngày trọng đại.
+          </p>
+          <a href="tel:0817550150">☎ &nbsp;0817 550 150</a>
+          <p className="footer-address">
+            Thôn Điện Tân, xã Cư Pui,<br />huyện Krông Bông, Đắk Lắk
+          </p>
+        </div>
+        <div className="footer-column">
+          <h3>Dịch vụ nổi bật</h3>
+          <Link href="/#services">→ &nbsp;Makeup Bridal</Link>
+          <Link href="/#services">→ &nbsp;Wedding Photography</Link>
+          <Link href="/#services">→ &nbsp;Phóng sự cưới</Link>
+          <Link href="/#outfits">→ &nbsp;Trang phục cưới</Link>
+        </div>
+        <div className="footer-column">
+          <h3>Bản đồ</h3>
+          <div className="map-card">
+            <iframe
+              title="Bản đồ Tuấn Tú Wedding"
+              src="https://www.google.com/maps?q=Thon+Dien+Tan,+Cu+Pui,+Krong+Bong,+Dak+Lak&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <a className="map-open" href="https://maps.app.goo.gl/Jieztynya9e3PKjk7" target="_blank" rel="noreferrer">
+              Mở trong Google Maps ↗
+            </a>
+          </div>
+          <p className="footer-address">
+            Thôn Điện Tân, xã Cư Pui<br />Krông Bông, Đắk Lắk
+          </p>
+        </div>
+        <div className="footer-column">
+          <h3>Fanpage</h3>
+          <div className="facebook-widget">
+            <iframe
+              title="Fanpage Tuấn Tú Wedding"
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTuantuwedding&tabs=timeline&width=340&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+              loading="lazy"
+              scrolling="no"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            />
+          </div>
+          <a className="facebook-link" href="https://www.facebook.com/Tuantuwedding" target="_blank" rel="noreferrer">
+            Xem fanpage trên Facebook ↗
+          </a>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <span>© 2026 Tuấn Tú Wedding</span>
+        <span>Makeup Bridal · Photography · Phóng sự cưới</span>
+      </div>
+    </footer>
+  );
 }
 
 export default function WeddingPage() {
